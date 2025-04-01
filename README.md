@@ -1,1 +1,2 @@
 # Loan_appliaction
+I developed a Loan Application system using HTML, CSS, SQL, Python, and Django. The application allows users to sign up, log in, and apply for different types of loans, specifying details such as loan amount, interest rate, and reason for the loan. Users can track the status of their loan applications, while admins have the authority to approve or reject loan requests. The project includes secure authentication, loan management, and an admin panel for efficient loan processing, ensuring a seamless and user-friendly experience.
