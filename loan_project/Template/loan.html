@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Application</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+aside {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+}
+
+aside h1 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+aside a {
+    display: block; 
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+aside a:hover, .active {
+    background: #34495e;
+    padding-left: 10px;
+}
+
+section {
+    width: 100%;
+    padding: 20px;
+    background: #ecf0f1;
+}
+
+header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.loan-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.box {
+    padding: 20px;
+    background: white;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #3498db;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<aside>
+    <h1>Admin Dashboard</h1>
+    <a href="{% url 'transactions' %}" class="{% if request.path == '/transactions/' %}active{% endif %}">Transactions</a>
+    <a href="{% url 'pending' %}" class="{% if request.path == '/pending/' %}active{% endif %}">Pending</a>
+    <a href="{% url 'approved' %}" class="{% if request.path == '/approve/' %}active{% endif %}">Approved Loan</a>
+    <a href="{% url 'rejected' %}" class="{% if request.path == '/rejected/' %}active{% endif %}">Rejected Loan</a>
+</aside>
+
+<section>
+    <header>Loan Application Form</header>
+
+    <div class="loan-container">
+        <div class="box">🏠 Home Loan</div>
+        <div class="box">🚗 Car Loan</div>
+        <div class="box">🏢 Business Loan</div>
+        <div class="box">🎓 Education Loan</div>
+        <div class="box">💰 Personal Loan</div>
+        <div class="box">📜 Other Loan</div>
+    </div>
+
+    <div class="button-container">
+        <a href="{% url 'loan_form' %}" class="btn">Apply for a Loan</a>
+    </div>
+</section>
+
+</body>
+
+</html>
+
+
+
+
+
+

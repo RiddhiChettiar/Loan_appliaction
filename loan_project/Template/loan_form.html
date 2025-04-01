@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loan Page</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container{
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 850px;
+            height: 700px;
+            border-radius: 10px;
+        }
+
+        h1{
+            text-align: center;
+            margin-top: 4%;
+            margin-bottom: 5%;
+        }
+
+        label{
+            display: block;
+            font-weight: bold;
+            margin-left: 20px;
+            font-size: 18px;
+            margin-top: 2px;
+        }
+
+        input,select,textarea{
+            width: 90%;
+            padding: 8px;
+            margin-left: 22px;
+            margin-top: 5px;
+        }
+
+        textarea {
+            resize: none;    
+            height: 30px;    
+        }
+
+        .btn{
+            margin-top: 16px;
+            width: 30%;
+            height: 10%;
+            padding: 2%;
+            margin-left: 35%;
+            background-color:  rgb(0, 102, 255);
+            border: none;
+            border-radius: 3px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Loan Application Form</h1>
+        <form method="post" action="{% url 'loan_form' %}">
+            {% csrf_token %}
+        
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" name="surname" required>
+        
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+        
+            <label for="address">Address</label>
+            <textarea id="address" name="address" required></textarea>
+        
+            <label for="reason">Reason for Loan</label>
+            <textarea id="reason" name="reason" required></textarea>
+        
+            <label for="loan_type">Loan Type</label>
+            <select name="loan_type" id="loan_type" required>
+                <option value="">Select Loan Type</option>
+                <option value="home">🏠 Home Loan</option>
+                <option value="car">🚗 Car Loan</option>
+                <option value="business">🏢 Business Loan</option>
+                <option value="educational">🎓 Educational Loan</option>
+                <option value="personal">💰 Personal Loan</option>
+                <option value="other">📜 Other Loan</option>
+            </select>
+        
+            <label for="amount">Loan Amount</label>
+            <input type="number" id="amount" name="amount" required>
+        
+            <label for="interest_rate">Select Interest Rate (%)</label>
+            <select name="interest_rate" id="interest_rate" required>
+                <option value="">Select Interest Rate</option>
+                <option value="5.0">5%</option>
+                <option value="7.0">7%</option>
+                <option value="10.0">10%</option>
+                <option value="12.0">12%</option>
+                <option value="15.0">15%</option>
+            </select>
+
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+    </div>
+</body>
+
+</html>
